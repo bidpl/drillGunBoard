@@ -30,6 +30,8 @@ void setup()
   pinMode(talon1Pin, OUTPUT);
   pinMode(talon2Pin, OUTPUT);
 
+  pinMode(13, OUTPUT);
+
   lcd.init();                      // initialize the lcd
   // Print a message to the LCD.
   lcd.backlight();
@@ -43,7 +45,10 @@ void setup()
 void loop()
 {
   //compute x power and y power %
+  //Reads 2x to get rid of noise
   x = analogRead(pot1);
+  x = analogRead(pot1);
+  y = analogRead(pot2);
   y = analogRead(pot2);
   xPower = toPower(x, digitalRead(button1));
   yPower = linearPower(y, digitalRead(button2));
@@ -66,6 +71,12 @@ void loop()
   lcd.print(yPower);
   lcd.print("  ");
 
+  if(digitalRead(button2) == 0){
+    yPower = 0;
+    digitalWrite(13, LOW);
+  }else{
+    digitalWrite(13, HIGH);
+  }
 
 
   xDelayTime = 1490 + xPower*500;
@@ -85,9 +96,9 @@ double toPower(int sensorVal, int forward){
 }
 
 double linearPower(int sensorVal, int brake){
-  if(brake == 0){
-    return 0.0;
-  }else{
+//  if(brake == 0){
+//    return 0.0;
+//  }else{
     return ((double)sensorVal - 512.5)/512.5;
-  }
+//  }
 }
