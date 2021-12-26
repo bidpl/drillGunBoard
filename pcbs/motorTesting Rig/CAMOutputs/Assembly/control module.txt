@@ -1,0 +1,10 @@
+Partlist exported from C:/Users/binhm/Documents/EAGLE/projects/motorTesting Rig/control module.sch at 7/20/2019 1:17 PM
+
+Qty Value            Device             Package   Parts                      Description                      
+3                    LED5MM             LED5MM    BRAKE-LED, DIR-LED, GO-LED LED                              
+1                    POTENTIOMETER-16MM 3RP/1610N U$2                                                         
+3                    R-EU_0207/10       0207/10   R1, R2, R3                 RESISTOR, European symbol        
+2   DPDT-PUSHBUTTON  DPDT-PUSHBUTTON    7MM*7MM   DIR1, ENA1                 7mm X 7mm DPDT pushbutton switch 
+1   MALE-HEADER-2PIN MALE-HEADER-2PIN   MA02-1    U$3                                                         
+1   MALE-HEADER-3PIN MALE-HEADER-3PIN   MA03-1    U$4                                                         
+1   MALE-HEADER-5PIN MALE-HEADER-5PIN   MA05-1    U$1                                                         
