@@ -11141,6 +11141,10 @@ Source: www.kingbright.com</description>
 <part name="P+11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="P+9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
+<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="1u"/>
+<part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10u"/>
+<part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11332,11 +11336,25 @@ Source: www.kingbright.com</description>
 <instance part="GND14" gate="1" x="210.82" y="124.46" smashed="yes">
 <attribute name="VALUE" x="208.28" y="121.92" size="1.778" layer="96"/>
 </instance>
+<instance part="P+9" gate="VCC" x="114.3" y="35.56" smashed="yes">
+<attribute name="VALUE" x="116.84" y="38.1" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C9" gate="G$1" x="109.22" y="22.86" smashed="yes" rot="R180">
+<attribute name="NAME" x="107.696" y="22.479" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="107.696" y="27.559" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C10" gate="G$1" x="119.38" y="22.86" smashed="yes" rot="R180">
+<attribute name="NAME" x="117.856" y="22.479" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="117.856" y="27.559" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND15" gate="1" x="114.3" y="12.7" smashed="yes">
+<attribute name="VALUE" x="111.76" y="10.16" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="XTAL2" class="0">
+<net name="XTAL_N" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="1"/>
 <pinref part="C2" gate="G$1" pin="2"/>
@@ -11344,9 +11362,10 @@ Source: www.kingbright.com</description>
 <pinref part="U1" gate="U$1" pin="PB7(XTAL2/TOSC2)"/>
 <wire x1="111.76" y1="119.38" x2="104.14" y2="119.38" width="0.1524" layer="91"/>
 <junction x="104.14" y="119.38"/>
+<label x="104.14" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="XTAL1" class="0">
+<net name="XTAL_P" class="0">
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="Q1" gate="G$1" pin="2"/>
@@ -11354,6 +11373,7 @@ Source: www.kingbright.com</description>
 <pinref part="U1" gate="U$1" pin="PB6(XTAL1/TOSC1)"/>
 <wire x1="104.14" y1="124.46" x2="111.76" y2="124.46" width="0.1524" layer="91"/>
 <junction x="104.14" y="124.46"/>
+<label x="104.14" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -11524,6 +11544,17 @@ Source: www.kingbright.com</description>
 <wire x1="228.6" y1="129.54" x2="210.82" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="210.82" y1="129.54" x2="210.82" y2="127" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="20.32" x2="109.22" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="17.78" x2="114.3" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="17.78" x2="119.38" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="17.78" x2="119.38" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+<wire x1="114.3" y1="15.24" x2="114.3" y2="17.78" width="0.1524" layer="91"/>
+<junction x="114.3" y="17.78"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -11641,6 +11672,17 @@ Source: www.kingbright.com</description>
 <wire x1="93.98" y1="17.78" x2="96.52" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="17.78" x2="96.52" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="P+11" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="27.94" x2="109.22" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="30.48" x2="114.3" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="30.48" x2="119.38" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="30.48" x2="119.38" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="P+9" gate="VCC" pin="VCC"/>
+<wire x1="114.3" y1="30.48" x2="114.3" y2="33.02" width="0.1524" layer="91"/>
+<junction x="114.3" y="30.48"/>
+<pinref part="C10" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="SCL" class="0">
